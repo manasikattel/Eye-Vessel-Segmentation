@@ -5,8 +5,14 @@ avg_filter_size=[[5 5];[9 9];[15 15]];
 binarization_threshold=[0.005,0.01,0.02,0.03];
 areaopen_size=[20,50,100,150,200];
 morphological_op=["majority","clean"];
-[tile,bin,dist,fsize,bthresh,aopensize,morph,mean_acc,mean_dice,mean_jaccard,mean_sensitivity,mean_specificity] = deal(0,0,0,0,0,0,0,0,0,0,0,0);
-t_final = table(tile,bin,dist,fsize,bthresh,aopensize,morph,mean_acc,mean_dice,mean_jaccard,mean_sensitivity,mean_specificity );
+
+
+[a,b,c,d,e,f,g,mean_acc,mean_dice,mean_jaccard,mean_sensitivity,mean_specificity] = deal([0 0],0,"a",[0 0],0,0,"a",0,0,0,0,0);
+i =1;
+t_final = table(a,b,c,d,e,f,g,mean_acc,mean_dice,mean_jaccard,mean_sensitivity,mean_specificity);
+n    = length(num_tiles) * length(nbins) * length(distribution) * length(avg_filter_size) * length(binarization_threshold) * length(areaopen_size) * length(morphological_op);
+H    = waitbar(0, 'Please wait...');
+
 for tile=1:length(num_tiles)
     for bin=1:length(nbins)
         for dist=1:length(distribution)
@@ -19,8 +25,19 @@ for tile=1:length(num_tiles)
                             %catch
                             %disp(avg_filter_size(fsize,:));
                             %end
-                            t = table(tile,bin,dist,fsize,bthresh,aopensize,morph,mean_acc,mean_dice,mean_jaccard,mean_sensitivity,mean_specificity);
+
+                            a = num_tiles(tile,:);
+                            b = nbins(bin);
+                            c = distribution(dist);
+                            d = avg_filter_size(fsize,:);
+                            e = binarization_threshold(bthresh);
+                            f = areaopen_size(aopensize);
+                            g = morphological_op(morph);
+                            t = table(a,b,c,d,e,f,g,mean_acc,mean_dice,mean_jaccard,mean_sensitivity,mean_specificity);                            
                             t_final = [t_final; t];
+                            waitbar(i/n, H, sprintf('%d of %d', i, n));
+                            i = i+1;
+
                         end
                     end
                 end
