@@ -1,9 +1,9 @@
-function [result_image] = VesselSegmentation(image,mask,num_tiles,nbins,distribution,avg_filter_size, binarization_threshold,areaopen_size,morphological_op)
+function [im_final] = VesselSegmentation(image,mask,num_tiles,nbins,distribution,avg_filter_size, binarization_threshold,areaopen_size,morphological_op)
 
 image = imread(image);
 mask = imread(mask);
 resized_image = imresize(image, [584 565]);
-SE = strel('disk', 3);
+SE = strel('disk', 6);
 mask = imerode(mask, SE);
 mask = mask/255;
 green = resized_image(:,:,2);
@@ -11,12 +11,9 @@ gray_image = mask.*green;
     
 double_depth_image = im2double(gray_image);
 
-%try
+
 double_depth_image = adapthisteq(double_depth_image,'numTiles',num_tiles,'nBins',nbins,'Distribution',distribution);
-%catch
-%    display(num_tiles)
-%end
-double_depth_image = double_depth_image.^2;
+im_thin_vess = MatchFilterWithGaussDerivative(double_depth_image, 1, 4, 12, double(mask), 2.3, 30);
 
 tetha = linspace(0,180,13);
 tetha(end) = [];
@@ -40,6 +37,9 @@ final_image = imbinarize(final_image, binarization_threshold);
 
 opened_image = bwareaopen(final_image, areaopen_size);
 result_image = bwmorph(opened_image,morphological_op);
+
+im_final = combine_thin_vessel(im_thin_vess,result_image);
+
 
 
 end 
