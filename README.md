@@ -55,5 +55,5 @@ Download the dataset from [DRIVE Grand Challenge](https://drive.grand-challenge.
 Our Dice Scores for the 20 test images:
 
 <p align=center>
-<img src="https://github.com/manasikattel/-Eye-Vessel-Segmentation/blob/main/figures/results.png">
+<img src="https://github.com/manasikattel/-Eye-Vessel-Segmentation/blob/main/figures/results.jpg">
 </p>
