@@ -1,6 +1,6 @@
 function segment_and_save()
 
-"Creates segmentation for test images and masks and dumps the output"
+% Creates segmentation for test images and masks and dumps the output
 
 folder_images= 'dataset\test\images';
 folder_mask='dataset\test\mask';
