@@ -2,14 +2,14 @@
 
 Morphology of vessels is an important indicator for the detection and evaluation of various diseases such as Diabetic Retinopathy, Glaucoma, Hypertension.
 
-This project is a part of coursework Image processing in first semester of [Masters in Medical Imaging and Applications (MAIA)] (https://maiamaster.udg.edu/). The objective of the project is to Segment the eye vessels using morphological methods and classical image processing techniques. 
+This project is a part of coursework Image processing in first semester of [Masters in Medical Imaging and Applications (MAIA)](https://maiamaster.udg.edu/). The objective of the project is to Segment the eye vessels using morphological methods and classical image processing techniques. 
 
 
 ## Instructions for use
 
 ### Download dataset 
 
-Download the dataset from [DRIVE Grand Challenge] (https://drive.grand-challenge.org/)
+Download the dataset from [DRIVE Grand Challenge](https://drive.grand-challenge.org/)
 
 ### To run the GUI 
 
@@ -34,20 +34,20 @@ Download the dataset from [DRIVE Grand Challenge] (https://drive.grand-challenge
 * Combine two methods
 
 <p align=center>
-<img src="https://github.com/manasikattel/-Eye-Vessel-Segmentation/blob/master/figures/main_algorithm.png">
+<img src="https://github.com/manasikattel/-Eye-Vessel-Segmentation/blob/main/figures/main_algorithm.png">
 </p>
 
 ### Morphological Method
 
 <p align=center>
-<img src="https://github.com/manasikattel/-Eye-Vessel-Segmentation/blob/master/figures/morphological.png">
+<img src="https://github.com/manasikattel/-Eye-Vessel-Segmentation/blob/main/figures/morphological.png">
 </p>
 
 ### Matched Filter Method
 
 
 <p align=center>
-<img src="https://github.com/manasikattel/-Eye-Vessel-Segmentation/blob/master/figures/matched_filter.png">
+<img src="https://github.com/manasikattel/-Eye-Vessel-Segmentation/blob/main/figures/matched_filter.png">
 </p>
 
 
@@ -55,5 +55,5 @@ Download the dataset from [DRIVE Grand Challenge] (https://drive.grand-challenge
 Our Dice Scores for the 20 test images:
 
 <p align=center>
-<img src="https://github.com/manasikattel/-Eye-Vessel-Segmentation/blob/master/figures/results.png">
+<img src="https://github.com/manasikattel/-Eye-Vessel-Segmentation/blob/main/figures/results.png">
 </p>
