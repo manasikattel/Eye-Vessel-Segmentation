@@ -1,8 +1,10 @@
-function [mean_acc, mean_dice, mean_jaccard, mean_sensitivity, mean_specificity] = test(num_tiles,nbins,distribution,avg_filter_size, binarization_threshold,areaopen_size,morphological_op)
+function [mean_acc, mean_dice, mean_jaccard, mean_sensitivity, mean_specificity] = test(num_tiles,nbins,distribution,avg_filter_size, binarization_threshold,areaopen_size,morphological_op)                                                         
 
-folder_images= 'C:\Users\Gonzalo\Desktop\Universidad\MAIA Master\First Semester\Image Processing\Project\images';
-folder_mask='C:\Users\Gonzalo\Desktop\Universidad\MAIA Master\First Semester\Image Processing\Project\mask';
-folder_gt= 'C:\Users\Gonzalo\Desktop\Universidad\MAIA Master\First Semester\Image Processing\Project\1st_manual';
+% Error metrics for training images
+
+folder_images= 'dataset\training\images';
+folder_mask='datsaset\training\mask';
+folder_gt= 'dataset\training\1st_manual';
 images= fullfile(folder_images, '*.tif');
 image_files= dir(images);
 mask= fullfile(folder_mask, '*.gif');
@@ -20,7 +22,7 @@ for i=1:length(image_files)
   name_gt= gt_files(i).name;
   image_route= fullfile(folder_images,name_image);
   mask_route= fullfile(folder_mask, name_mask);
-  gt_route= fullfile(folder_gt, name_gt);
+  gt_route= fullfile(folder_gt, name_gt);                           
   image_gt= imread(gt_route);
 %   num_tiles = [8 8];
 %   nbins = 512;
