@@ -1,7 +1,9 @@
 function segment_and_save()
 
-folder_images= 'C:\Users\Gonzalo\Desktop\Universidad\MAIA Master\First Semester\Image Processing\Project\test\images';
-folder_mask='C:\Users\Gonzalo\Desktop\Universidad\MAIA Master\First Semester\Image Processing\Project\test\mask';
+"Creates segmentation for test images and masks and dumps the output"
+
+folder_images= 'dataset\test\images';
+folder_mask='dataset\test\mask';
 images= fullfile(folder_images, '*.tif');
 image_files= dir(images);
 mask= fullfile(folder_mask, '*.gif');
@@ -14,7 +16,7 @@ binarization_threshold = 0.01;
 areaopen_size = 100;
 morphological_op = 'majority';
 
-dir_test= "C:\Users\Gonzalo\Desktop\Universidad\MAIA Master\First Semester\Image Processing\Project\test";
+dir_test= "test";
 foldername = "predicted_" + datestr(now,"ddmmyy") + "_" + datestr(now,"hhmmss");
 fullpath = dir_test + "\" + foldername ;
 disp(fullpath);
